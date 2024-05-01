@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Websocket</title>
+</head>
+<body>
+    <input type="text" id="message" placeholder="Enter message">
+    <button onclick="send()">Send</button>
+</body>
+<script>
+    //create websocket connection
+    const socket = io.connect('http://localhost:3001');
+
+    socket.addEventListener('open', function (event) {
+        console.log('Connected to server');
+    });
+
+    socket.addEventListener('message', function (event) {
+        console.log('Message from server ', event.data);
+    });
+
+    const send = () => {
+        const message = document.getElementById('message').value;
+        socket.send(message);
+    }
+</script>
+</html>
