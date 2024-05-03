@@ -30,9 +30,9 @@ io.on('connection', (socket) => {
 
     socket.on('send_id', (id) => {
         const {socket_id, input } = id;
-        
+
         io.to(socket_id).emit('ngobrol_message', input);
-        console.log(client_socket, socket_id, input);
+        console.log(socket_id, input);
     });
 });
 
