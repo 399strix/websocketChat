@@ -8,16 +8,16 @@ const { Server } = require('socket.io');
 
 app.use(cors());
 
-// const io = new Server(http, {
-//     cors: {
-//         origin: "http://localhost:3000",
-//         methods: ["GET", "POST"],
-//     },
-// });
-const io = new Server(http);
+const io = new Server(http, {
+    cors: {
+        origin: "https://study-circular-processed-arab.trycloudflare.com",
+        methods: ["GET", "POST"],
+    },
+});
+// const io = new Server(http);
 
 app.get('/', (req, res) => {
-    res.send('socket io running on Port : ${PORT}');
+    res.send('socket io running on Port : ' + http.address().port);
 });
 
 io.on('connection', (socket) => {
