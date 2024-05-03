@@ -1,2 +1,2 @@
 # websocketChat
-deploy with render.com
+deploy with render.com and cloudflare
