@@ -1,2 +1,2 @@
 # websocketChat
-deploy with heroku
+deploy with render.com
