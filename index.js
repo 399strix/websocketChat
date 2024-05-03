@@ -24,8 +24,7 @@ io.on('connection', (socket) => {
     console.log('a user connected:', socket.id);
 
     socket.on('send_message', (msg) => {
-        // console.log(msg);
-        socket.broadcast.emit('receive_message', msg);
+        // socket.broadcast.emit('receive_message', msg);
         console.log(socket.id, msg);
     });
 
@@ -33,8 +32,7 @@ io.on('connection', (socket) => {
         const {socket_id, input } = id;
         
         io.to(socket_id).emit('ngobrol_message', input);
-        // console.log(id);
-        // console.log(input);
+        console.log(client_socket, socket_id, input);
     });
 });
 
